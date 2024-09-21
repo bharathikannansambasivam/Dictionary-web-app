@@ -10,45 +10,40 @@ function Audio({ phonetics, word }) {
     }
   }, [currentAudio]);
   const handlePlay = (audioSrc) => {
-    setCurrentAudio(audioSrc);
     if (audioRef.current) {
+      audioRef.current.src = audioSrc;
       audioRef.current.play();
     }
   };
 
   return (
-    <div>
-      {" "}
-      <h1 className="text-5xl font-Lora font-semibold text-black"> {word}</h1>
-      <div className="  ">
+    <div className="mb-8">
+      <h1 className="text-5xl font-Lora font-semibold text-black mb-4">
+        {word}
+      </h1>
+      <div className="space-y-4">
         {phonetics.map(
-          (phonetics) =>
-            phonetics.audio && (
-              <div className=" flex  ">
-                {phonetics.audio ? (
-                  <div className="flex  border-y border-y-purple-500 p-3   justify-between w-full items-center  ">
-                    <p className="text-purple-700">{phonetics.text}</p>
-
-                    <div className=" ">
-                      <audio ref={audioRef}>
-                        <source src={phonetics.audio} type="audio/mp3" />
-                        Your browser does not support the audio element.
-                      </audio>
-                      <img
-                        className="h-12 "
-                        src={play}
-                        onClick={() => handlePlay(phonetics.audio)}
-                        alt="phonetics audio"
-                      />
-                    </div>
-                  </div>
-                ) : (
-                  ""
-                )}
+          (phonetic, index) =>
+            phonetic.audio && (
+              <div
+                key={index}
+                className="flex justify-between items-center border border-purple-500 p-4 rounded-md shadow-md transition-transform hover:scale-105"
+              >
+                <p className="text-purple-700">{phonetic.text}</p>
+                <img
+                  className="h-12 cursor-pointer hover:scale-110 transition-transform"
+                  src={play}
+                  onClick={() => handlePlay(phonetic.audio)}
+                  alt="phonetics audio"
+                />
+                <audio ref={audioRef}>
+                  <source src={phonetic.audio} type="audio/mp3" />
+                  Your browser does not support the audio element.
+                </audio>
               </div>
             )
         )}
-      </div>{" "}
+      </div>
     </div>
   );
 }
