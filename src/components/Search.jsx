@@ -33,13 +33,13 @@ function Search({ font }) {
 
   return (
     <div
-      className={` flex h-full justify-center items-center flex-col border-4 border-black  py-32  px-72 font-${font}`}
+      className={` flex h-full justify-center items-center flex-col  py-32  px-72 font-${font}`}
     >
-      <div className=" flex relative    ">
+      <div className=" flex relative w-3/4 mb-10 ">
         <input
           type="text"
           placeholder="Enter text "
-          className="border-2  pl-5 bg-gray-300  border-none  p-2  rounded-xl "
+          className="border-2 w-full  pl-5 bg-gray-300  border-none  p-2  rounded-xl "
           onChange={(e) => {
             setWord(e.target.value);
           }}
@@ -67,7 +67,7 @@ function Search({ font }) {
           <FooterBar sourceUrl={meaning[0].sourceUrls} />
         </div>
       ) : (
-        "No data"
+        "Search Something"
       )}
     </div>
   );
