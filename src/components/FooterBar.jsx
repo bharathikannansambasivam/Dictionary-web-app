@@ -5,10 +5,10 @@ function FooterBar({ sourceUrl }) {
   return (
     <div>
       {" "}
-      <div className="flex gap-4 mt-3 border-t border-t-gray-600 items-center">
-        <p className="text-gray-500"> Source </p>
+      <div className=" gap-4 mt-3 border-t border-t-gray-600 items-center">
+        <p className="text-gray-500 mt-5"> Source </p>
         <a
-          className="underline flex gap-2  p-4"
+          className="underline flex  gap-2  p-4"
           target="_blank"
           href={sourceUrl}
         >
@@ -19,5 +19,4 @@ function FooterBar({ sourceUrl }) {
     </div>
   );
 }
-
 export default FooterBar;
