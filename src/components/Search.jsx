@@ -39,14 +39,12 @@ function Search({ font }) {
   };
 
   return (
-    <div
-      className={`flex h-full justify-center items-center flex-col py-32 px-4 md:px-32 font-${font}`}
-    >
-      <div className="relative w-full mb-10">
+    <div className={`flex h-full  flex-col py-28 px-4 md:px-32 font-${font}`}>
+      <div className="relative  mb-10">
         <input
           type="text"
           placeholder="Enter text"
-          className="border-2 border-gray-300 w-full pl-5 bg-gray-100 p-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
+          className="border-2 w-full border-gray-300  pl-5 bg-gray-100 p-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
           onChange={(e) => setWord(e.target.value)}
         />
         <img
@@ -57,7 +55,6 @@ function Search({ font }) {
         />
       </div>
       {error && <p className="text-red-500 mb-4">{error}</p>}
-
       {meaning ? (
         <div>
           <Audio
