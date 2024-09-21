@@ -2,7 +2,13 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Lora: ["Lora", "serif"],
+        Inconsolata: ["Inconsolata", "monospace"],
+        Inter: ["Inter", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
