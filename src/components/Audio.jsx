@@ -18,9 +18,7 @@ function Audio({ phonetics, word }) {
 
   return (
     <div className="mb-8">
-      <h1 className="text-5xl font-Lora font-semibold text-black mb-4">
-        {word}
-      </h1>
+      <h1 className="text-5xl  font-semibold  mb-4">{word}</h1>
       <div className="space-y-4">
         {phonetics.map(
           (phonetic, index) =>

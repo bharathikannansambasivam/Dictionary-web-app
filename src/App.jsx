@@ -1,5 +1,4 @@
-import React from "react";
-import Search from "./components/Search";
+import React, { useState } from "react";
 import Topbar from "./components/Topbar";
 
 function App() {

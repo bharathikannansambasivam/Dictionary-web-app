@@ -16,12 +16,14 @@ function Noun({ noun, meaning }) {
           </li>
         ))}
       </div>
-      <p className="text-gray-500">
-        synonyms{" "}
-        <span className="text-purple-600 font-semibold">
-          {meaning.synonyms[0]}
-        </span>
-      </p>
+      {meaning.synonyms[0] && (
+        <p className="text-gray-500">
+          synonyms{" "}
+          <span className="text-purple-600 font-semibold">
+            {meaning.synonyms[0]}
+          </span>
+        </p>
+      )}
     </div>
   );
 }
