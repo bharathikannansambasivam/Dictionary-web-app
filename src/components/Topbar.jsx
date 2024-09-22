@@ -23,7 +23,8 @@ function Topbar() {
     <div
       className={` ${
         toggleTheme ? "bg-black text-white" : "bg-white text-black"
-      } font-${font}`}
+      } `}      style={{ fontFamily: font }}
+
     >
       <div className="flex justify-around items-center ">
         <div className="flex items-center gap-2 font-extrabold">
