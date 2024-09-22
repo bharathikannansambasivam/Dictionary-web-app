@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Audio from "./Audio";
 import Noun from "./Noun";
 import Verb from "./Verb";
 
 import searchAnimationGif from "../assets/images/searchGif.gif";
-
 import icon_search from "../assets/images/icon-search.svg";
 import FooterBar from "./FooterBar";
+import ImageGenerator from "./ImageGenerator";
 
 function Search({ font }) {
   const [word, setWord] = useState("");
@@ -38,14 +38,21 @@ function Search({ font }) {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      fetchData();
+    }
+  };
+
   return (
-    <div className={`flex h-full  flex-col py-36 px-4 md:px-32 font-${font}`}>
-      <div className="relative  mb-10">
+    <div className={`flex h-screen pt-32  flex-col px-4 md:px-32 font-${font}`}>
+      <div className="relative  mb-10 ">
         <input
           type="text"
           placeholder="Enter text"
-          className="border-2 w-full border-gray-300  pl-5 bg-gray-100 p-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
+          className="border-2 w-full text-black pl-5 bg-gray-100 p-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"
           onChange={(e) => setWord(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <img
           className="absolute right-5 top-3 cursor-pointer"
@@ -61,6 +68,8 @@ function Search({ font }) {
             phonetics={meaning[0]?.phonetics || []}
             word={meaning[0].word}
           />
+
+          <ImageGenerator nameofImage={word} />
           <Noun noun={noun} meaning={meaning[0]?.meanings[0]} />
           <Verb
             verb={verb}
@@ -70,7 +79,7 @@ function Search({ font }) {
         </div>
       ) : (
         !error && (
-          <div className="flex items-center flex-col">
+          <div className="errorStyle flex items-center flex-col">
             <p className="animate-bounce">Search Something...</p>
             <img src={searchAnimationGif} />
           </div>
