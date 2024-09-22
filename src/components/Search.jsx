@@ -39,7 +39,7 @@ function Search({ font }) {
   };
 
   return (
-    <div className={`flex h-full  flex-col py-28 px-4 md:px-32 font-${font}`}>
+    <div className={`flex h-full  flex-col py-36 px-4 md:px-32 font-${font}`}>
       <div className="relative  mb-10">
         <input
           type="text"
@@ -70,7 +70,7 @@ function Search({ font }) {
         </div>
       ) : (
         !error && (
-          <div>
+          <div className="flex items-center flex-col">
             <p className="animate-bounce">Search Something...</p>
             <img src={searchAnimationGif} />
           </div>
