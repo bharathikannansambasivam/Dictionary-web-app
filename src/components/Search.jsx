@@ -45,7 +45,7 @@ function Search({ font }) {
   };
 
   return (
-    <div className={`flex h-screen pt-32  flex-col px-4 md:px-32 font-${font}`}>
+    <div className={`flex h-full pt-32  flex-col px-4 md:px-32 font-${font}`}>
       <div className="relative  mb-10 ">
         <input
           type="text"
