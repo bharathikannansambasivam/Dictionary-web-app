@@ -17,11 +17,17 @@ function ImageGenerator({ nameofImage }) {
   }, [setImage]);
   return (
     <div className="flex flex-col justify-center items-center ">
-      <img
-        className="h-48 w-48 border-2 hover:scale-110 transition-transform border-purple-700 rounded-xl "
-        src={image}
-        alt=""
-      />
+      {console.log(image)}
+
+      {image ? (
+        <img
+          className="h-48 w-48 border-2 hover:scale-110 transition-transform border-purple-700 rounded-xl"
+          src={image}
+          alt={heading}
+        />
+      ) : (
+        <p className="text-xl font-semibold mt-2">{heading}</p>
+      )}
       <p className="text-xl font-semibold mt-2">{heading}</p>
     </div>
   );
