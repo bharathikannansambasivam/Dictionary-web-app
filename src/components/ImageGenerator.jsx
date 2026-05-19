@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+const key = import.meta.env.VITE_KEY;
 function ImageGenerator({ nameofImage }) {
   const [image, setImage] = useState("");
   const [heading, setHeading] = useState("");
-  const key = "AyR5QxZConpsdVvR971sqMJyENaLTDMTTb-6iLkSWHc";
   useEffect(() => {
     const fetchImage = async () => {
       const response = await axios.get(
